@@ -1,0 +1,100 @@
+//www.elegoo.com
+//2016.12.08
+
+#include "pitches.h"
+ 
+/*// notes in the melody:
+int melody[] = {
+  NOTE_C5, NOTE_D5, NOTE_E5, NOTE_F5, NOTE_G5, NOTE_A5, NOTE_B5, NOTE_C6 };*/
+
+void play(int note, unsigned int duration) {
+  analogWrite(9, note);//play the note
+  delay(duration);//millisec duration of the note
+  analogWrite(9,0);//turn-off the buzzer
+  delay(50);//little delay before next action
+}
+
+void pause(unsigned int duration) {
+  delay(duration); 
+}
+
+void setup() {
+ //declare pin 9 to be an Output
+ pinMode(9,OUTPUT);
+ beep(50);
+ beep(1500);
+ delay(1000);
+}
+
+void loop(){ //SECOND VERSION 24/11/2020
+  play(NOTE_D5,500);
+  play(NOTE_F5,1500);
+  pause(1500);
+  play(NOTE_F5,400);  
+  //introdurre metronomo
+  
+}
+/*void loop() {  //FIRST EVER VERSION
+
+    // pin8 output the voice, every scale is 0.5 sencond
+    tone(8, melody[1], 500); 
+    // Output the voice after several minutes
+    delay(550);
+    tone(8, melody[4], 1500);
+    delay(1550);
+    tone(8, melody[5], 166.5);
+    delay(166.5);
+    tone(8, melody[1], 166.5);
+    delay(166.5);
+    tone(8, melody[5], 166.5);
+    delay(166.5);
+    tone(8, melody[6], 500);
+    delay(550);
+    tone(8, melody[6], 500);
+    delay(550);
+    tone(8, melody[6], 500);
+    delay(550);
+    tone(8, melody[6], 166.5);
+    delay(166.5);
+    tone(8, melody[7], 166.5);
+    delay(166.5);
+    tone(8, melody[4], 166.5);
+    delay(166.5);
+    tone(8, melody[6], 750);
+    delay(800);
+    tone(8, melody[5], 250);
+    delay(300);
+    tone(8, melody[4], 500);
+    delay(500+50);
+
+    tone(8, melody[5], 250);
+    delay(250+50);
+    tone(8, melody[6], 125);
+    delay(125+50);
+    tone(8, melody[6], 250);
+    delay(250+100);
+    tone(8, melody[5], 125);
+    delay(125+50);
+    tone(8, melody[4], 500);
+    delay(500+50);
+    tone(8, melody[5], 250);
+    delay(250+50);
+    tone(8, melody[6], 125);
+    delay(125+100);
+    tone(8, melody[6], 500);
+    delay(500+50);
+    tone(8, melody[5], 250);
+    delay(250+50);
+    tone(8, melody[6], 125);
+    delay(125+50);
+    tone(8, melody[6], 500);
+    delay(500+50);
+    tone(8, melody[4], 250);
+    delay(250+50);
+    tone(8, melody[5], 125);
+    delay(125+50);
+    tone(8, melody[5], 1500);
+    delay(1500+50);
+  // restart after two seconds 
+  //delay(3000);
+}*/
